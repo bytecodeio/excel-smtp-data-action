@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "npx functions-framework --target=api"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.2",
+    "@looker/sdk": "^24.14.0",
+    "@looker/sdk-node": "^24.14.0",
+    "@looker/sdk-rtl": "^21.6.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14"
+  }
+}
