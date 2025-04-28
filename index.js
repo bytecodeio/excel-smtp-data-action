@@ -50,14 +50,6 @@ const formatFilters = (selectedFilters, dashboardFilters) => {
         return {}
     }
 }
-// const formatFilters = (dashboard_filters) => {
-//     let _filters = {}
-//     dashboard_filters?.map((filter) => {
-//         _filters[filter.dimension] = filter.default_value
-//     })
-//     console.log(_filters)
-//     return _filters
-// }
 
 const downloadData = async (query_id, format, tableCalcs) => {
     try {
@@ -183,12 +175,28 @@ app.post('/execute', async (req,res) => {
 
 app.post('/form', (req,res) => {
     let fields = {
-        'fields':[{
-            name: "emails",
-            label: "Email Addresses",
-            type: "string",
-            required: true,
-        }
+        'fields':[
+            {
+                name: "emails",
+                label: "Email Addresses",
+                type: "string",
+                required: true,
+            },
+            {
+                name: "tiles",
+                label: "Select Tiles",
+                type: "select",
+                options: [
+                    {
+                        name:'Test1',
+                        label: 'Test1'
+                    },
+                    {
+                        name:'Test2',
+                        label: 'Test2'
+                    },
+                ],
+            }
     ]}
     res.send(fields)
 })
@@ -198,8 +206,8 @@ app.post('/createExcel', async (req,res) => {
     let _return = await createExcelFunc(id)
     
     let message = {
-        from:'aaron.modic@bytecode.io',
-        to:'aamodic@gmail.com',
+        from:'',
+        to:'',
         subject:'Test',
         attachments: [
             {
